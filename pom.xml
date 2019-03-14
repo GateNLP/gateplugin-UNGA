@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>uk.ac.gate</groupId>
+    <artifactId>gate-plugin-base</artifactId>
+    <!-- this should be the version of GATE you wish to build against -->
+    <version>8.6-SNAPSHOT</version>
+    <relativePath></relativePath>
+  </parent>	
+
+  <!-- this is the description of this plugin -->
+  <groupId>uk.ac.gate.plugins</groupId>
+  <artifactId>unga</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  
+  <name>UN GA IE</name>
+  <description>Information extraction for UN GA resolutions</description>
+
+  <licenses>
+    <license>
+      <name>GNU General Public License (GPL), Version 3</name>
+      <url>https://www.gnu.org/licenses/gpl.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <organization>
+    <name>GATE</name>
+    <url>http://gate.ac.uk</url>
+  </organization>
+
+  <developers>
+    <developer>
+      <id>gate-team</id>
+      <name>GATE Team</name>
+      <email>gate-developers@lists.sourceforge.net</email>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:git://github.com/GateNLP/gateplugin-UNGA.git</connection>
+    <developerConnection>scm:git:git@github.com:GateNLP/gateplugin-UNGA.git</developerConnection>
+    <url>https://github.com/GateNLP/gateplugin-UNGA</url>
+  </scm>
+
+
+  <dependencies>
+    <!-- add any other libraries your plugin depends on. Any other GATE plugins 
+	 you depend on at compile time should use the provided scope -->
+  </dependencies>
+
+</project>
