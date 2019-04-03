@@ -46,6 +46,9 @@ WHERE {
 
 query = rdflib.plugins.sparql.prepareQuery('%s SELECT DISTINCT ?x WHERE {?x a skos:Concept}' % prefix_string)
 
+nbr_concepts = 0
+nbr_alt_labels = 0
+
 with open(options.output_file, 'w', encoding='utf-8') as f:
     for row in graph.query(query):
         concept = row[0]
@@ -53,10 +56,15 @@ with open(options.output_file, 'w', encoding='utf-8') as f:
         for row1 in graph.query(query1):
             pref_label = row1[0]
             continue
-        f.write('\t'.join([pref_label, 'pref_label=%s' % pref_label, 'uri=%s' % concept]))
+        f.write('\t'.join([pref_label, 'pref_label=%s' % pref_label, 'uri=%s' % concept]) + '\n')
+        nbr_concepts += 1
 
         query2 = rdflib.plugins.sparql.prepareQuery(alt_label_query % concept)
         for row2 in graph.query(query2):
             label = row2[0]
-            f.write('\t'.join([label, 'pref_label=%s' % pref_label, 'uri=%s' % concept]))
+            f.write('\t'.join([label, 'pref_label=%s' % pref_label, 'uri=%s' % concept]) + '\n')
+            nbr_alt_labels += 1
 
+print('Number of concepts:', nbr_concepts)
+print('Number of alt labels:', nbr_alt_labels)
+print('Lines written:' , nbr_concepts + nbr_alt_labels)
