@@ -1,2 +1,55 @@
 #!/usr/bin/env python3
+import argparse
+import rdflib.plugins.sparql
+from rdflib.namespace import NamespaceManager
 
+oparser = argparse.ArgumentParser(description="consolidate CVS output to one line per document",
+                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+
+oparser.add_argument("-i", dest="input_file",
+                     required=True,
+                     metavar="FILE", type=str,
+                     help="input file")
+
+oparser.add_argument("-o", dest="output_file",
+                     required=True,
+                     metavar="FILE", type=str,
+                     help="output file")
+
+options = oparser.parse_args()
+
+graph = rdflib.Graph()
+ns_manager = NamespaceManager(rdflib.Graph())
+ns_manager.bind('skos', rdflib.namespace.SKOS)
+graph.namespace_manager = ns_manager
+
+graph.parse(options.input_file, format='n3')
+
+print('Triples:', len(graph))
+
+prefix_string = 'PREFIX skos: <%s>' % rdflib.namespace.SKOS
+
+pref_label_query = '''PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?label
+WHERE {
+   %s skos:prefLabel ?label .
+   FILTER (lang(?label) != "en")
+}'''
+
+alt_label_query = '''PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?label
+WHERE {
+   %s skos:altLabel ?label .
+   FILTER (lang(?label) != "en")
+}'''
+
+
+query = rdflib.plugins.sparql.prepareQuery('%s SELECT DISTINCT ?x WHERE {?x a skos:Concept}' % prefix_string)
+for row in graph.query(query):
+    instance = row[0]
+    query1 = rdflib.plugins.sparql.prepareQuery(pref_label_query % instance)
+    
+    query2 = rdflib.plugins.sparql.prepareQuery(alt_label_query % instance)
+    for row1 in graph.query(query1):
+        label = row[0]
+        print(instance, label)
