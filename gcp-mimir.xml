@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batch id="sample" xmlns="http://gate.ac.uk/ns/cloud/batch/1.0">
+  <application file="src/main/resources/resources/application.xgapp"/>
+
+  <report file="report.xml" />
+
+  <input dir="../input-files"
+         mimeType="text/pdf"
+         compression="none"
+         class="gate.cloud.io.file.FileInputHandler" />
+
+  <output class="gate.cloud.io.mimir.MimirOutputHandler"
+          indexUrl="XXXX"
+          username="YYYY"
+          password="ZZZZ"
+          />
+
+  <!-- TODO in the xgapp: set a uriFeature on the document, based on
+       the filename -->
+
+  <documents>
+    <documentEnumerator class="gate.cloud.io.file.FileDocumentEnumerator"
+                        includes="**/*.pdf"
+                        />
+  </documents>
+</batch>
