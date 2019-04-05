@@ -5,7 +5,7 @@
   <report file="report.xml" />
 
   <input dir="sample-docs"
-         mimeType="text/pdf"
+         mimeType="application/pdf"
          compression="none"
          class="gate.cloud.io.file.FileInputHandler" />
 
@@ -17,6 +17,7 @@
 
   <documents>
     <documentEnumerator class="gate.cloud.io.file.FileDocumentEnumerator"
+                        dir="sample-docs"
                         includes="**/*.pdf"
                         />
   </documents>
