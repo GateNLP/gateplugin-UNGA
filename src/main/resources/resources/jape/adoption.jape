@@ -1,0 +1,15 @@
+Phase: Adoption
+Input: Token Lookup Date
+Options: control = once
+
+Rule: Adoption
+({Lookup.majorType=="un", Lookup.minorType=="resolution"}
+  (({Token})+):adopter
+  {Token.string=="on"}
+  ({Date}):date
+):match
+-->
+:match.ResolutionAdoption = {rule = "Adoption",
+                             adopter = :adopter@cleanString,
+                             date = :date@cleanString
+                            }

@@ -1,0 +1,20 @@
+Phase: Heading
+Input: Token PBreak 
+Options: control = once
+
+Rule: Heading
+({PBreak}
+  (
+    ({Token.kind == "number"}
+     {Token.string == "/"}
+     {Token.kind == "number"}):number
+    {Token.string == "."}
+    (({Token})+):title
+  ):match
+ {PBreak}
+)
+-->
+:match.Resolution = {rule = "Heading",
+                     number = :number@cleanString,
+                     title = :title@cleanString
+                    }
