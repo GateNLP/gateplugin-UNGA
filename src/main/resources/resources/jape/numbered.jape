@@ -1,0 +1,12 @@
+Phase: Numbered
+Input: MajorBreak MinorBreak Token
+Options: control = all
+
+Rule: Numbered
+({MajorBreak}|{MinorBreak}
+  ({Token.kind == "number"}
+   {Token.string == "."}
+  ):match
+)
+-->
+:match.ParagraphNumber = {rule = "Numbered"}

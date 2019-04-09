@@ -11,5 +11,5 @@ Rule: Adoption
 -->
 :match.ResolutionAdoption = {rule = "Adoption",
                              adopter = :adopter@cleanString,
-                             date = :date@cleanString
+                             date = :date.Date.normalized
                             }

@@ -1,6 +1,14 @@
 
-matcher = content =~ "\\n(\\s\\n)+";
+matcher = content =~ "\\n(\\s\\n)+\\s*";
 while(matcher.find()) {
   outputAS.add(matcher.start(), matcher.end(), 
-               "PBreak", Factory.newFeatureMap());
-               }
+               "MajorBreak", Factory.newFeatureMap());
+}
+
+matcher = content =~ "\\n\\s+";
+while(matcher.find()) {
+  if (outputAS.getCovering("MajorBreak", matcher.start(), matcher.end()).isEmpty()) {
+      outputAS.add(matcher.start(), matcher.end(), 
+                   "MinorBreak", Factory.newFeatureMap());
+  }
+}

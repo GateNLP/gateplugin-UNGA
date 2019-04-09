@@ -1,9 +1,9 @@
 Phase: Heading
-Input: Token PBreak 
+Input: Token MajorBreak 
 Options: control = once
 
 Rule: Heading
-({PBreak}
+({MajorBreak}
   (
     ({Token.kind == "number"}
      {Token.string == "/"}
@@ -11,7 +11,7 @@ Rule: Heading
     {Token.string == "."}
     (({Token})+):title
   ):match
- {PBreak}
+ {MajorBreak}
 )
 -->
 :match.Resolution = {rule = "Heading",
