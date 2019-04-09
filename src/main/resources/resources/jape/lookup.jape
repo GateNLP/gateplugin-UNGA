@@ -7,6 +7,6 @@ Rule: Lookup
 ({Lookup.majorType=="unbis"}):match
 -->
 :match.Unbis = {rule = "Lookup",
-                label = :match.Lookup.prefLabel,
+                label = :match.Lookup.pref_label,
                 class = :match.Lookup.uri
                }
