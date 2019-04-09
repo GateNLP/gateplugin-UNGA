@@ -1,0 +1,21 @@
+Phase: Lookup
+Input: Token PBreak
+
+Options: control = all
+
+Rule: Heading
+({PBreak}
+  ({Token.kind == "number"}
+   {Token.string == "/"}
+   {Token.kind == "number"}):number
+  {Token.string == "."}
+  (({Token})+):title
+ {PBreak}
+)
+-->
+:number.ResolutionNumber = {rule = "Heading",
+                            value = :number@cleanString,
+                           },
+:title.ResolutionTitle = {rule = "Heading",
+                          value = :title@cleanString,
+                          }
