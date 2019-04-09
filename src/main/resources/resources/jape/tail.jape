@@ -1,0 +1,10 @@
+Phase: Numbered
+Input: Boundary Token MajorBreak MinorBreak
+Options: control = all
+
+Rule: Tail
+( {Boundary}
+  (({Token})+{MinorBreak})+
+):footer
+-->
+:footer.Footer = {rule = "Tail"}

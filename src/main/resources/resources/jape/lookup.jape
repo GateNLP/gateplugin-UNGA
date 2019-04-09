@@ -15,3 +15,9 @@ Rule: Lookup1
 ({Lookup.majorType=="un", Lookup.minorType=="tga"}):match
 -->
 :match.TGA = {rule = "Lookup1"}
+
+
+Rule: Lookup2
+({Lookup.majorType=="un", Lookup.minorType=="boundary"}):match
+-->
+:match.Boundary = {rule = "Lookup2"}
