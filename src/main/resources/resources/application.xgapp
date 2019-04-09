@@ -19,12 +19,6 @@
         <downloadListeners/>
       </gate.creole.Plugin-Maven>
       <gate.creole.Plugin-Maven>
-        <group>uk.ac.gate.mimir</group>
-        <artifact>mimir-indexing-plugin</artifact>
-        <version>6.0-SNAPSHOT</version>
-        <downloadListeners/>
-      </gate.creole.Plugin-Maven>
-      <gate.creole.Plugin-Maven>
         <group>uk.ac.gate.plugins</group>
         <artifact>tagger-np-chunking</artifact>
         <version>8.5</version>
@@ -105,7 +99,7 @@
               <localMap/>
             </runtimeParams>
             <resourceType>gate.creole.gazetteer.DefaultGazetteer</resourceType>
-            <resourceName>unbib</resourceName>
+            <resourceName>unbibGazetteer</resourceName>
             <initParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
               <localMap>
@@ -286,38 +280,14 @@
                   <string>resolveIt</string>
                   <boolean>true</boolean>
                 </entry>
+                <entry>
+                  <string>inanimatedEntityTypes</string>
+                  <null/>
+                </entry>
               </localMap>
             </runtimeParams>
             <resourceType>gate.creole.coref.Coreferencer</resourceType>
             <resourceName>ANNIE Pronominal Coreferencer 0001B</resourceName>
-            <initParams class="gate.util.persistence.MapPersistence">
-              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-              <localMap/>
-            </initParams>
-            <features class="gate.util.persistence.MapPersistence">
-              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-              <localMap/>
-            </features>
-          </pr>
-        </gate.util.persistence.AnalyserRunningStrategyPersistence>
-        <gate.util.persistence.AnalyserRunningStrategyPersistence>
-          <runMode>2</runMode>
-          <featureName></featureName>
-          <featureValue></featureValue>
-          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
-            <runtimeParams class="gate.util.persistence.MapPersistence">
-              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-              <localMap>
-                <entry>
-                  <string>mimirIndexUrl</string>
-                  <gate.util.persistence.PersistenceManager-URLHolder>
-                    <urlString>http://example.com/</urlString>
-                  </gate.util.persistence.PersistenceManager-URLHolder>
-                </entry>
-              </localMap>
-            </runtimeParams>
-            <resourceType>gate.mimir.index.MimirIndexingPR</resourceType>
-            <resourceName>Mímir Indexing PR 0000D</resourceName>
             <initParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
               <localMap/>
@@ -345,7 +315,6 @@
         <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[10]/pr"/>
         <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[11]/pr"/>
         <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[12]/pr"/>
-        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[13]/pr"/>
       </localList>
       <collectionType>java.util.ArrayList</collectionType>
     </prList>
