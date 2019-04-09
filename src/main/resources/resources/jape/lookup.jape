@@ -1,0 +1,12 @@
+Phase: Lookup
+Input: Lookup
+
+Options: control = all
+
+Rule: Lookup
+({Lookup.majorType=="unbis"}):match
+-->
+:match.Unbis = {rule = "Lookup",
+                label = :match.Lookup.prefLabel,
+                class = :match.Lookup.uri
+               }
