@@ -25,3 +25,4 @@ hs_err_pid*
 bin/.idea
 sample-output/*
 report.xml
+gcp-mimir.xml
