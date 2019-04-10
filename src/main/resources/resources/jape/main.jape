@@ -3,7 +3,8 @@ Phases:
 lookup
 numbered
 adoption
-heading
-tail
+title
+header
+footer
 paragraphs
 

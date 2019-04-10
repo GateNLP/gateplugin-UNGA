@@ -1,0 +1,13 @@
+Phase: Footer
+Input: Boundary Token Header
+Options: control = all
+
+Rule: Footer
+(
+  ( {Boundary}
+    ({Token})+
+  ):footer
+  {Header}
+)
+-->
+:footer.Footer = {rule = "Footer"}

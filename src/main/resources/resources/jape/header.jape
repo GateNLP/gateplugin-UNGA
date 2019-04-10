@@ -1,0 +1,39 @@
+Phase: Header
+Input: Token MajorBreak SpaceToken
+Options: control = all
+
+
+Macro: RESNBR
+({Token.kind=="number"}
+ {Token.string=="-"}
+ {Token.kind=="number"})
+
+Macro: PAGENBR
+({Token.kind=="number"}
+ {Token.string=="/"}
+ {Token.kind=="number"})
+
+
+Rule: Header0
+({MajorBreak}
+ (RESNBR)
+ {SpaceToken.kind=="space"}
+ (PAGENBR)
+ ({SpaceToken.kind=="space"})*
+ {MajorBreak}
+):match
+-->
+:match.Header = {rule = "Header0"}
+
+
+Rule: Header1
+({MajorBreak}
+ (PAGENBR)
+ {SpaceToken.kind=="space"}
+ (RESNBR)
+ ({SpaceToken.kind=="space"})*
+ {MajorBreak}
+):match
+-->
+:match.Header = {rule = "Header1"}
+
