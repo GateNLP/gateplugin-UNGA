@@ -22,6 +22,11 @@ semanticAnnotations = {
     annotation helper:new DefaultHelper(annType:'Organization', nominalFeatures:["orgType"])
     annotation helper:new DefaultHelper(annType:'Date', integerFeatures:["normalized"])
     annotation helper:new DefaultHelper(annType:'Document', integerFeatures:["date"], mode:Mode.DOCUMENT)
+    annotation helper:new DefaultHelper(annType:'Title', nominalFeatures:["title", "number"])
+    annotation helper:new DefaultHelper(annType:'ResolutionAdoption', nominalFeatures:[])
+    annotation helper:new DefaultHelper(annType:'PreambleParagraph', nominalFeatures:[])
+    annotation helper:new DefaultHelper(annType:'OperativeParagraph', nominalFeatures:[])
+    annotation helper:new DefaultHelper(annType:'UNBIS', nominalFeatures:["class","label"])
   }
 }
 documentRenderer = new OriginalMarkupMetadataHelper()
