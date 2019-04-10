@@ -1,0 +1,11 @@
+Phase: Body
+Input: Title Header Footer Token
+Options: control = appelt
+
+Rule: Body
+( ({Title}|{Header})
+  (({Token, !Footer})+):body
+)
+-->
+:body.Body = {rule = "Body"}
+
