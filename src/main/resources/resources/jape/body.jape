@@ -4,7 +4,7 @@ Options: control = appelt
 
 Rule: Body
 ( ({Title}|{Header})
-  (({Token, !Footer})+):body
+  (({Token, !Footer, !Header})+):body
 )
 -->
 :body.Body = {rule = "Body"}

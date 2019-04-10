@@ -1,19 +1,12 @@
-Phase: Paragraphs
-Input: MajorBreak MinorBreak ParagraphNumber TGA Token
+Phase: MainText
+Input: TGA Header Footer Token
 Options: control = appelt
 
-Rule: Paragraphs
-(({MajorBreak}|{MinorBreak})
- {TGA}
- 
- (
-   (({MajorBreak}|{MinorBreak})+({Token, !ParagraphNumber})+)+
- ):preambles
- (
-   (({MajorBreak}|{MinorBreak})+{ParagraphNumber}({Token})+)+
- ):operatives
+Rule: MainText
+( ({TGA}|{Header})
+  (({Token})+):mainText
+  {Footer}
 )
 -->
-:preambles.Preambles = {rule = "Paragraphs"},
-:operatives.Operatives = {rule = "Paragraphs"}
+:mainText.MainText = {rule = "MainText"}
 
