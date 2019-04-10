@@ -5,7 +5,7 @@ Options: control = all
 Rule: Tail
 ( {MajorBreak}
   ({Token})+
-  {MajorBreak}
+  ({MajorBreak})*
   {DocEnd}
 ):footer
 -->

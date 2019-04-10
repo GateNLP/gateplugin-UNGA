@@ -2,7 +2,7 @@ Phase: Title
 Input: Token MajorBreak 
 Options: control = once
 
-Rule: Heading
+Rule: Title
 ({MajorBreak}
   (
     ({Token.kind == "number"}
@@ -14,7 +14,7 @@ Rule: Heading
  {MajorBreak}
 )
 -->
-:match.Resolution = {rule = "Heading",
-                     number = :number@cleanString,
-                     title = :title@cleanString
-                    }
+:match.Title = {rule = "Title",
+                number = :number@cleanString,
+                title = :title@cleanString
+               }
