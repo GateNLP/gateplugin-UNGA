@@ -12,3 +12,7 @@ while(matcher.find()) {
                    "MinorBreak", Factory.newFeatureMap());
   }
 }
+
+
+end = Utils.lengthLong(doc);
+outputAS.add(end - 1L, end, "DocEnd", Factory.newFeatureMap());

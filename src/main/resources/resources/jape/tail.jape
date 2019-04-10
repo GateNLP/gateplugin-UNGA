@@ -1,0 +1,12 @@
+Phase: Tail
+Input: MajorBreak Token DocEnd
+Options: control = all
+
+Rule: Tail
+( {MajorBreak}
+  ({Token})+
+  {MajorBreak}
+  {DocEnd}
+):footer
+-->
+:footer.Footer = {rule = "Tail"}
