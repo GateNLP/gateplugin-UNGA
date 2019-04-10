@@ -20,6 +20,7 @@
 
   <documents>
     <documentEnumerator class="gate.cloud.io.file.FileDocumentEnumerator"
+                        dir="../input-files"
                         includes="**/*.pdf"
                         />
   </documents>
