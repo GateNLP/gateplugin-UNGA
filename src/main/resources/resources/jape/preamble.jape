@@ -1,0 +1,23 @@
+Phase: Preamble
+Input: Title TGA Header Footer Token ParagraphNumber
+Options: control = appelt
+
+Rule: Preamble0
+( {Title}
+  {TGA}
+  (
+    ({Token, !Footer, !Header, !ParagraphNumber})+
+  ):match
+)
+-->
+:match.Preamble = {rule = "Preamble0"}
+
+
+Rule: Preamble1
+( {Header}
+  (
+    ({Token, !Footer, !Header, !ParagraphNumber})+
+  ):match
+)
+-->
+:match.Preamble = {rule = "Preamble1"}
