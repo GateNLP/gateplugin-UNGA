@@ -91,10 +91,10 @@ lines_written = 0
 with open(options.output_file, 'w', encoding='utf-8') as f:
     for concept in concept_list:
         pref_label = uri2pref[concept]
-        f.write('\t'.join([pref_label, 'pref_label=%s' % pref_label, 'uri=%s' % concept]) + '\n')
+        f.write('\t'.join([pref_label, 'pref_label=%s' % pref_label, 'uri=%s' % concept, 'kind=pref']) + '\n')
         lines_written += 1
         for alt_label in sorted(uri2alts[concept]):
-            f.write('\t'.join([alt_label, 'pref_label=%s' % pref_label, 'uri=%s' % concept]) + '\n')        
+            f.write('\t'.join([alt_label, 'pref_label=%s' % pref_label, 'uri=%s' % concept, 'kind=alt']) + '\n')
             lines_written += 1
 
 print('Lines written:' , lines_written)
