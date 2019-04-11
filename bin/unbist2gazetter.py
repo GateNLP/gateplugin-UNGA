@@ -2,6 +2,7 @@
 import argparse
 import rdflib.plugins.sparql
 from rdflib.namespace import NamespaceManager
+from collections import defaultdict
 
 exclusions = ["THE"]
 
@@ -54,28 +55,46 @@ nbr_concepts = 0
 nbr_alt_labels = 0
 nbr_excluded = 0
 
-print('Generating', options.output_file)
+print('Generating')
 
-with open(options.output_file, 'w', encoding='utf-8') as f:
-    for row in graph.query(query):
-        concept = row[0]
-        query1 = rdflib.plugins.sparql.prepareQuery(pref_label_query % concept)
-        for row1 in graph.query(query1):
-            pref_label = row1[0].strip()
-            continue
-        f.write('\t'.join([pref_label, 'pref_label=%s' % pref_label, 'uri=%s' % concept]) + '\n')
-        nbr_concepts += 1
+uri2pref = dict()
+uri2alts = defaultdict(set)
 
-        query2 = rdflib.plugins.sparql.prepareQuery(alt_label_query % concept)
-        for row2 in graph.query(query2):
-            label = row2[0].strip()
-            if label in exclusions:
-                nbr_excluded += 1
-            else:
-                f.write('\t'.join([label, 'pref_label=%s' % pref_label, 'uri=%s' % concept]) + '\n')
-                nbr_alt_labels += 1
+
+for row in graph.query(query):
+    concept = row[0]
+    query1 = rdflib.plugins.sparql.prepareQuery(pref_label_query % concept)
+    for row1 in graph.query(query1):
+        # This will throw an exception if there is no pref_label
+        uri2pref[concept] = row1[0].strip()
+        continue
+    nbr_concepts += 1
+
+    query2 = rdflib.plugins.sparql.prepareQuery(alt_label_query % concept)
+    for row2 in graph.query(query2):
+        label = row2[0].strip()
+        if label in exclusions:
+            nbr_excluded += 1
+        else:
+            uri2alts[concept].add(label)
+            nbr_alt_labels += 1
 
 print('Number of concepts:', nbr_concepts)
-print('Number of alt labels:', nbr_alt_labels)
+print('Number of alt labels included:', nbr_alt_labels)
 print('Number of alt labels excluded:', nbr_excluded)
-print('Lines written:' , nbr_concepts + nbr_alt_labels)
+
+concept_list = sorted(uri2pref.keys())
+
+print('Writing', options.output_file)
+lines_written = 0
+
+with open(options.output_file, 'w', encoding='utf-8') as f:
+    for concept in concept_list:
+        pref_label = uri2pref[concept]
+        f.write('\t'.join([pref_label, 'pref_label=%s' % pref_label, 'uri=%s' % concept]) + '\n')
+        lines_written += 1
+        for alt_label in sorted(uri2alts[concept]):
+            f.write('\t'.join([alt_label, 'pref_label=%s' % pref_label, 'uri=%s' % concept]) + '\n')        
+            lines_written += 1
+
+print('Lines written:' , lines_written)
