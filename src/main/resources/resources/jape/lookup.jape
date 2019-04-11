@@ -8,7 +8,8 @@ Rule: Lookup
 -->
 :match.UNBIS = {rule = "Lookup",
                 label = :match.Lookup.pref_label,
-                class = :match.Lookup.uri
+                class = :match.Lookup.uri,
+                kind = :match.Lookup.kind,
                }
 
 Rule: Lookup1
