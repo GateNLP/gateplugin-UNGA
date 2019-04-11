@@ -1,12 +1,38 @@
-Phase: MainText
-Input: TGA Header Footer Token
+Phase: Paragraphs
+Input: Title TGA Header Footer Token ParagraphNumber
 Options: control = appelt
 
-Rule: MainText
-( ({TGA}|{Header})
-  (({Token})+):mainText
-  {Footer}
+Rule: Preamble0
+( {Title}
+  {TGA}
+  (
+    ({Token, !Footer, !ParagraphNumber})+
+  ):match
+  ({Footer}|{Header}|{ParagraphNumber})
 )
 -->
-:mainText.MainText = {rule = "MainText"}
+:match.Preamble = {rule = "Preamble0"}
+
+
+Rule: Preamble1
+( {Header}
+  (
+    ({Token, !Footer, !ParagraphNumber})+
+  ):match
+  ({Footer}|{Header}{ParagraphNumber})
+)
+-->
+:match.Preamble = {rule = "Preamble1"}
+
+
+Rule: Operative2
+( {Header}
+  (
+    {ParagraphNumber}
+    ({Token, !Footer})+
+  ):match
+  ({Footer}|{Header})
+)
+-->
+:match.Operative = {rule = "Operative2"}
 
