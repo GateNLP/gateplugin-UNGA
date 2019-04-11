@@ -3,6 +3,7 @@ Input: MajorBreak Token DocEnd Footer
 Options: control = all
 
 // A few lines at the end of the document
+
 Rule: Tail
 ( {MajorBreak}
   ({Token})+
@@ -12,14 +13,16 @@ Rule: Tail
 -->
 :footer.Footer = {rule = "Tail"}
 
+
 // A few lines followed by underscore+footnotes footer
-// at the end of the document (Footer created by previous phase)
+// at the end of the document (using Footer created
+// by previous phase)
+
 Rule: Tail1
 ( {MajorBreak}
   ({Token})+
   ({MajorBreak})*
-  {Footer}
-  {DocEnd}
+  {Footer contains DocEnd}
 ):footer
 -->
 :footer.Footer = {rule = "Tail1"}

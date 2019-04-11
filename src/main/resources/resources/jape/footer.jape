@@ -1,6 +1,7 @@
 Phase: Footer
-Input: Boundary Token Header
+Input: Boundary Token Header DocEnd
 Options: control = all
+
 
 Rule: Footer
 (
@@ -11,3 +12,13 @@ Rule: Footer
 )
 -->
 :footer.Footer = {rule = "Footer"}
+
+
+
+Rule: Footer1
+( {Boundary}
+  ({Token})+
+  {DocEnd}
+):footer
+-->
+:footer.Footer = {rule = "Footer1"}
