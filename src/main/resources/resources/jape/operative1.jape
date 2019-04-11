@@ -12,7 +12,7 @@ Rule: Operative3
   (
     ({Token, !Footer, !Header, !Operative})+
   ):match
-  {Operative}
+//  {Operative}
 )
 -->
 :match.Operative = {rule = "Operative3"}

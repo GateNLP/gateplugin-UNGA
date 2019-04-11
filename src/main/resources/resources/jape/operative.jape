@@ -11,5 +11,3 @@ Rule: Operative2
 )
 -->
 :match.Operative = {rule = "Operative2"}
-
-
