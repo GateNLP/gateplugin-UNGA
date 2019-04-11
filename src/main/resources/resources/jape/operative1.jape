@@ -1,10 +1,14 @@
 Phase: Operative
-Input: Title TGA Header Footer Token ParagraphNumber Operative
+Input: Header Footer Token Operative
 Options: control = appelt
+
+// To match the continuation of an operative paragraph
+// after a page break.
 
 Rule: Operative3
 ( {Operative}
-  ({Footer})?{Header}
+  ({Footer})?
+  {Header}
   (
     ({Token, !Footer, !Header, !Operative})+
   ):match
