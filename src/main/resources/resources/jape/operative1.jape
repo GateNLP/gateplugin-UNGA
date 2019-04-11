@@ -1,0 +1,14 @@
+Phase: Operative
+Input: Title TGA Header Footer Token ParagraphNumber Operative
+Options: control = appelt
+
+Rule: Operative3
+( {Operative}
+  ({Footer})?{Header}
+  (
+    ({Token, !Footer, !Header, !Operative})+
+  ):match
+  {Operative}
+)
+-->
+:match.Operative = {rule = "Operative3"}

@@ -22,3 +22,16 @@ Rule: Operative1
 )
 -->
 :match.Operative = {rule = "Operative1"}
+
+
+Rule: Operative2
+(
+  (
+    {ParagraphNumber}
+    ({Token, !Footer, !Header})+
+  ):match
+)
+-->
+:match.Operative = {rule = "Operative2"}
+
+
