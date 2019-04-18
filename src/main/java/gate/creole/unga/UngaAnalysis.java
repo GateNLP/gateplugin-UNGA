@@ -12,6 +12,6 @@ import gate.creole.metadata.CreoleResource;
 	@AutoInstanceParam(name="menu", value="UN GA IE")}))
 public class UngaAnalysis extends PackagedController {
 
-    //private static final long serialVersionUID = 5965895217733412732L;
+	private static final long serialVersionUID = 5965895217733412732L;
 
 }
