@@ -1,4 +1,4 @@
-package gate.creole.sentiment;
+package gate.unga;
 
 import gate.creole.PackagedController;
 import gate.creole.metadata.AutoInstance;
@@ -10,7 +10,7 @@ import gate.creole.metadata.CreoleResource;
     autoinstances = @AutoInstance(parameters = {
 	@AutoInstanceParam(name="pipelineURL", value="resources/application.xgapp"),
 	@AutoInstanceParam(name="menu", value="UN GA IE")}))
-public class SentimentAnalysis extends PackagedController {
+public class UngaAnalysis extends PackagedController {
 
     //private static final long serialVersionUID = 5965895217733412732L;
 

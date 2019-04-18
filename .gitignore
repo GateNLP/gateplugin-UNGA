@@ -26,3 +26,6 @@ bin/.idea
 sample-output/*
 report*.xml
 gcp-mimir.xml
+.idea
+target
+unga.iml
