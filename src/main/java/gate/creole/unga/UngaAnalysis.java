@@ -1,4 +1,4 @@
-package gate.unga;
+package gate.creole.unga;
 
 import gate.creole.PackagedController;
 import gate.creole.metadata.AutoInstance;
