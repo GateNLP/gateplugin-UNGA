@@ -26,7 +26,7 @@ semanticAnnotations = {
     annotation helper:new DefaultHelper(annType:'ResolutionAdoption', nominalFeatures:["date"])
     annotation helper:new DefaultHelper(annType:'Preamble', nominalFeatures:[])
     annotation helper:new DefaultHelper(annType:'Operative', nominalFeatures:[])
-    annotation helper:new DefaultHelper(annType:'UNBIS', nominalFeatures:["class","label"])
+    annotation helper:new DefaultHelper(annType:'UNBIS', nominalFeatures:["uri","label"])
   }
 }
 documentRenderer = new OriginalMarkupMetadataHelper()
