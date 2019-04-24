@@ -57,6 +57,8 @@
         </gate.util.persistence.AnalyserRunningStrategyPersistence>
         <gate.util.persistence.AnalyserRunningStrategyPersistence>
           <runMode>1</runMode>
+          <featureName></featureName>
+          <featureValue></featureValue>
           <pr class="gate.util.persistence.LanguageAnalyserPersistence">
             <runtimeParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
@@ -205,10 +207,17 @@
         </gate.util.persistence.AnalyserRunningStrategyPersistence>
         <gate.util.persistence.AnalyserRunningStrategyPersistence>
           <runMode>1</runMode>
+          <featureName></featureName>
+          <featureValue></featureValue>
           <pr class="gate.util.persistence.LanguageAnalyserPersistence">
             <runtimeParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-              <localMap/>
+              <localMap>
+                <entry>
+                  <string>failOnMissingInputAnnotations</string>
+                  <boolean>false</boolean>
+                </entry>
+              </localMap>
             </runtimeParams>
             <resourceType>gate.creole.POSTagger</resourceType>
             <resourceName>ANNIE POS Tagger</resourceName>
@@ -229,7 +238,12 @@
           <pr class="gate.util.persistence.LanguageAnalyserPersistence">
             <runtimeParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-              <localMap/>
+              <localMap>
+                <entry>
+                  <string>failOnMissingInputAnnotations</string>
+                  <boolean>false</boolean>
+                </entry>
+              </localMap>
             </runtimeParams>
             <resourceType>gate.creole.morph.Morph</resourceType>
             <resourceName>GATE Morphological analyser 00017</resourceName>
@@ -250,7 +264,12 @@
           <pr class="gate.util.persistence.LanguageAnalyserPersistence">
             <runtimeParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-              <localMap/>
+              <localMap>
+                <entry>
+                  <string>failOnMissingInputAnnotations</string>
+                  <boolean>false</boolean>
+                </entry>
+              </localMap>
             </runtimeParams>
             <resourceType>mark.chunking.GATEWrapper</resourceType>
             <resourceName>Noun Phrase Chunker 0001A</resourceName>
@@ -314,6 +333,10 @@
             <runtimeParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
               <localMap>
+                <entry>
+                  <string>failOnMissingInputAnnotations</string>
+                  <boolean>false</boolean>
+                </entry>
                 <entry>
                   <string>dateFormat</string>
                   <string>dd-MMM-yyyy</string>
