@@ -1,12 +1,12 @@
 Phase: Preamble
-Input: Title TGA Header Footer Token ParagraphNumber Operative
+Input: Title TGA Header Footer Sentence ParagraphNumber Operative
 Options: control = appelt
 
 Rule: Preamble0
 ( {Title}
   {TGA}
   (
-    ({Token, !Footer, !Header, !ParagraphNumber, !Operative})+
+    ({Sentence, !Footer, !Header, !ParagraphNumber, !Operative})+
   ):match
 )
 -->
@@ -16,7 +16,7 @@ Rule: Preamble0
 Rule: Preamble1
 ( {Header}
   (
-    ({Token, !Footer, !Header, !ParagraphNumber, !Operative})+
+    ({Sentence, !Footer, !Header, !ParagraphNumber, !Operative})+
   ):match
 )
 -->

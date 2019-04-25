@@ -1,12 +1,12 @@
 Phase: Operative
-Input: Header Footer Token ParagraphNumber
+Input: Header Footer Sentence ParagraphNumber
 Options: control = appelt
 
 Rule: Operative2
 (
   (
     {ParagraphNumber}
-    ({Token, !Footer, !Header})+
+    ({Sentence, !Footer, !Header})+
   ):match
 )
 -->

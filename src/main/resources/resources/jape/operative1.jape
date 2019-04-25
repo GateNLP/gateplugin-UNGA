@@ -1,5 +1,5 @@
 Phase: Operative
-Input: Header Footer Token Operative
+Input: Header Footer Sentence Operative
 Options: control = appelt
 
 // To match the continuation of an operative paragraph
@@ -10,7 +10,7 @@ Rule: Operative3
   ({Footer})?
   {Header}
   (
-    ({Token, !Footer, !Header, !Operative})+
+    ({Sentence, !Footer, !Header, !Operative})+
   ):match
 //  {Operative}
 )

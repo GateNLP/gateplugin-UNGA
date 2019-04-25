@@ -1,10 +1,10 @@
 Phase: Body
-Input: Title Header Footer Token
+Input: Title Header Footer Sentence
 Options: control = appelt
 
 Rule: Body
 ( ({Title}|{Header})
-  (({Token, !Footer, !Header})+):body
+  (({Sentence, !Footer, !Header})+):body
 )
 -->
 :body.Body = {rule = "Body"}
