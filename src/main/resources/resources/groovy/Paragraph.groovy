@@ -11,7 +11,7 @@ if (end > 0L) {
           outputAS.add(matcher.start(), matcher.end(), 
                    "MajorBreak", Factory.newFeatureMap());
           outputAS.add(matcher.start(), matcher.end(), 
-                   "Split", Utils.featureMap("source", "MajorBreak"));
+                   "Split", Utils.featureMap("source", "MajorBreak", "kind", "external"));
       }
     }
 
@@ -21,7 +21,7 @@ if (end > 0L) {
           outputAS.add(matcher.start(), matcher.end(), 
                        "MinorBreak", Factory.newFeatureMap());
           outputAS.add(matcher.start(), matcher.end(), 
-                   "Split", Utils.featureMap("source", "MinorBreak"));
+                   "Split", Utils.featureMap("source", "MinorBreak", "kind", "external"));
       }
     }
 }
