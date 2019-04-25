@@ -10,6 +10,8 @@ if (end > 0L) {
            outputAS.get("DocEnd", matcher.start(), matcher.end()).isEmpty() ) {
           outputAS.add(matcher.start(), matcher.end(), 
                    "MajorBreak", Factory.newFeatureMap());
+          outputAS.add(matcher.start(), matcher.end(), 
+                   "Split", Utils.featureMap("source", "MajorBreak"));
       }
     }
 
@@ -18,6 +20,8 @@ if (end > 0L) {
       if (outputAS.getCovering("MajorBreak", matcher.start(), matcher.end()).isEmpty()) {
           outputAS.add(matcher.start(), matcher.end(), 
                        "MinorBreak", Factory.newFeatureMap());
+          outputAS.add(matcher.start(), matcher.end(), 
+                   "Split", Utils.featureMap("source", "MinorBreak"));
       }
     }
 }
