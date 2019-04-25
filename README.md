@@ -4,6 +4,8 @@ Information extraction for United Nations General Assembly Resolutions
 
 https://uniteideas.spigit.com/unga-resolutions/Page/Home
 
+See https://github.com/GateNLP/UNGA-search for the exploratory web interface.
+
 ## UNBIS thesaurus
 
 https://s3.amazonaws.com/unbis-thesaurus/unbist-20181105.ttl
